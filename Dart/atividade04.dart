@@ -13,13 +13,22 @@ void main() {
   print("Informe o terceiro lado do triângulo: ");
   ladoTriangulo03 = double.parse(stdin.readLineSync()!);
 
-  List<double> ladosTriangulo = [ladoTriangulo01, ladoTriangulo02, ladoTriangulo03];
-
   if (ladoTriangulo01 + ladoTriangulo02 > ladoTriangulo03) {
     print("Triângulo");
-  } else if (ladoTriangulo01 == ladoTriangulo02 && ladoTriangulo02 == ladoTriangulo03) {
+  }
+
+  if (ladoTriangulo01 != ladoTriangulo02 &&
+      ladoTriangulo02 != ladoTriangulo03 &&
+      ladoTriangulo01 != ladoTriangulo03) {
+    print("Triângulo escaleno");
+  } else if (ladoTriangulo01 == ladoTriangulo02 &&
+      ladoTriangulo02 == ladoTriangulo03) {
     print("Triângulo equilatero");
-  } else if (ladoTriangulo01 == ladoTriangulo02 || ladoTriangulo02 == ladoTriangulo03 || ladoTriangulo03 == ladoTriangulo01) {
-    
+  } else if (ladoTriangulo01 == ladoTriangulo02 ||
+      ladoTriangulo02 == ladoTriangulo03 ||
+      ladoTriangulo03 == ladoTriangulo01) {
+    print("Triângulo isósceles");
+  } else {
+    print("Não é um triângulo!");
   }
 }
