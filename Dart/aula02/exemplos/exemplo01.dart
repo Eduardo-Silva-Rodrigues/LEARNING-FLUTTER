@@ -1,15 +1,14 @@
-import 'dart:math';
+// import 'dart:math';
 
 void main() {
   for (int i = 0; i <= 10; i++) {
-    // print(i + 1);
+    print(i + 1);
   }
-
 
   var notas = [9.8, 6.7, 6.2, 8.7, 8.1];
 
   for (var nota in notas) {
-    // print(nota);
+    print(nota);
   }
 
   Map<int, String> alunos = {

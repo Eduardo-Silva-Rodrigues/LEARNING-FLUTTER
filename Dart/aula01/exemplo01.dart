@@ -7,12 +7,7 @@ void main() {
   dynamic qualMeuValor = "123";
   qualMeuValor = true;
 
-  List<String> nomes = [
-    "Eduardo",
-    "Gustavo",
-    "Lucas",
-    "Flavin do pneu"
-  ];
+  List<String> nomes = ["Eduardo", "Gustavo", "Lucas", "Flavin do pneu"];
 
   Map<String, dynamic> registroCliente = {
     "Nome": "Eduardo",
@@ -20,12 +15,7 @@ void main() {
     "Valor_Compra": 100
   };
 
-  Set<String> listaNomes = {
-    "Eduardo",
-    "Gustavo",
-    "Lucas",
-    "Flavin do pneu"
-  };
+  Set<String> listaNomes = {"Eduardo", "Gustavo", "Lucas", "Flavin do pneu"};
 
   print(listaNomes);
 }
