@@ -1,39 +1,52 @@
 class Item {
-  String nome;
-  int dano;
-  int durabilidade;
-  int defesa;
-  String alcance;
+  String? _nome;
+  int? _dano;
+  int? _durabilidade;
+  int? _defesa;
+  String? _alcance;
 
   Item(
-      {this.nome = "N/a",
-      this.dano = 0,
-      this.durabilidade = 0,
-      this.defesa = 0,
-      this.alcance = "N/a"}) {
-    if (this.nome == "Escudo") {
-      this.dano = 0;
-      this.durabilidade = 10;
-      this.defesa = 2;
-      this.alcance = "Curto";
+      {String nome = "N/a",
+      int dano = 0,
+      int durabilidade = 0,
+      int defesa = 0,
+      String alcance = "N/a"}) {
+    if (this._nome == "Escudo") {
+      this._dano = 0;
+      this._durabilidade = 10;
+      this._defesa = 2;
+      this._alcance = "Curto";
     }
-    if (this.nome == "Espada") {
-      this.dano = 2;
-      this.durabilidade = 10;
-      this.defesa = 0;
-      this.alcance = "Curto";
+    if (this._nome == "Espada") {
+      this._dano = 2;
+      this._durabilidade = 10;
+      this._defesa = 0;
+      this._alcance = "Curto";
     }
-    if (this.nome == "Arco") {
-      this.dano = 2;
-      this.dano = 8;
-      this.defesa = 0;
-      this.alcance = "Longo";
+    if (this._nome == "Arco") {
+      this._dano = 2;
+      this._dano = 8;
+      this._defesa = 0;
+      this._alcance = "Longo";
     }
-    if (this.nome == "Lança") {
-      this.dano = 2;
-      this.durabilidade = 8;
-      this.defesa = 0;
-      this.alcance = "Médio";
+    if (this._nome == "Lança") {
+      this._dano = 2;
+      this._durabilidade = 8;
+      this._defesa = 0;
+      this._alcance = "Médio";
     }
   }
+
+  String get getNome => this._nome!;
+  int get getDano => this._dano!;
+  int get getDurabilidade => this._durabilidade!;
+  int get getDefesa => this._defesa!;
+  String get getAlcance => this._alcance!;
+
+  void set setNome(String nome) => this._nome = nome;
+  void set setDano(int dano) => this._dano = dano;
+  void set setDurabilidade(int durabilidade) =>
+      this._durabilidade = durabilidade;
+  void set setDefesa(int defesa) => this._defesa = defesa;
+  void set setAlcance(String alcance) => this._alcance = alcance;
 }

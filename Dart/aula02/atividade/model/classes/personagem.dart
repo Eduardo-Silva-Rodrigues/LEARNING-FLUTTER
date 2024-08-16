@@ -2,43 +2,75 @@ import 'classe.dart';
 import 'item.dart';
 
 class Personagem extends Classe {
-  String nomePersonagem;
-  Item? equipamento;
-  double experiencia;
+  String _nomePersonagem;
+  List<Item>? _equipamentos;
+  double _experiencia;
+  bool _cooldownAtaqueEspecial;
 
-  Personagem(String nomeClass,
-      {this.nomePersonagem = "N/a",
-      this.equipamento = null,
-      this.experiencia = 0.0})
-      : super(nome: nomeClass);
+  Personagem(String nomeClasse,
+      {String nomePersonagem = "N/a",
+      List<Item>? equipamentos = null,
+      double experiencia = 0.0,
+      bool cooldownAtaqueEspecial = false})
+      : _nomePersonagem = nomePersonagem,
+        _equipamentos = equipamentos!,
+        _experiencia = experiencia,
+        _cooldownAtaqueEspecial = cooldownAtaqueEspecial,
+        super(nomeClasse: nomeClasse);
 
-  String getNome() {
-    return this.nomePersonagem;
+  String get getNome => this._nomePersonagem;
+  List<Item>? get getEquipamentos => this._equipamentos!;
+  double get getExperiencia => this._experiencia;
+  bool get getCooldownAtaqueEspecial => this._cooldownAtaqueEspecial;
+
+  void set setNome(String nomePersonagem) =>
+      this._nomePersonagem = nomePersonagem;
+  void set setEquipamentos(List<Item>? equipamentos) =>
+      this._equipamentos = equipamentos;
+  void set setExperiencia(double experiencia) =>
+      this._experiencia = experiencia;
+
+  void set setCooldownAtaqueEspecial(bool cooldownAtaqueEspecial) =>
+      this._cooldownAtaqueEspecial = cooldownAtaqueEspecial;
+
+  @override
+  void ataqueLeve(Personagem inimigo) {
+    int danoNoInimigo = this.getAtaque() - inimigo.getDefesa();
+    int vidaRestanteDoInimigo = inimigo.getVida() - danoNoInimigo;
+    inimigo.setVida(vidaRestanteDoInimigo);
   }
 
-  Item? getEquipamento() {
-    return this.equipamento;
+  @override
+  void ataquePesado(Personagem inimigo) {
+    int danoNoInimigo = this.getAtaque() - inimigo.getDefesa();
+    int danoAdicional = 5;
+    int vidaRestanteDoInimigo =
+        inimigo.getVida() - (danoNoInimigo + danoAdicional);
+    inimigo.setVida(vidaRestanteDoInimigo);
   }
 
-  double getExperiencia() {
-    return this.experiencia;
+  @override
+  void ataqueEspecial(Personagem inimigo) {
+    int danoNoInimigo = this.getAtaque() - inimigo.getDefesa();
+    int danoAdicional = 10;
+    int vidaRestanteDoInimigo =
+        inimigo.getVida() - (danoNoInimigo + danoAdicional);
+    inimigo.setVida(vidaRestanteDoInimigo);
+    this.setCooldownAtaqueEspecial = true;
   }
 
-  void setNome(String nomePersonagem) {
-    this.nomePersonagem = nomePersonagem;
-  }
-
-  void setEquipamento(Item equipamento) {
-    this.equipamento = equipamento;
-  }
-
-  void setExperiencia(double exp) {
-    this.experiencia = exp;
+  @override
+  void esquiva(Personagem inimigo) {
+    int danoNoInimigo = this.getAtaque() - inimigo.getDefesa();
+    int danoAdicional = 10;
+    int vidaRestanteDoInimigo =
+        inimigo.getVida() - (danoNoInimigo + danoAdicional);
+    inimigo.setVida(vidaRestanteDoInimigo);
   }
 }
 
 void main() {
-  Personagem pp = Personagem("Guerreiro");
+  Personagem pp = Personagem('Guerreiro');
 
-  print(pp.getAtaque());
+  print(pp._equipamentos);
 }

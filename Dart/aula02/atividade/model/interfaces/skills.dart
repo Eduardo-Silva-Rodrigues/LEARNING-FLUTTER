@@ -1,17 +1,8 @@
+import '../classes/personagem.dart';
+
 abstract class Skills {
-  void habilidadeAtaqueLeveGuerreiro();
-  void habilidadeAtaquePesadoGuerreiro();
-  void habilidadeAtaqueEspecialGuerreiro();
-
-  void habilidadeDisparoUnicoArqueiro();
-  void habilidadeDisparoTriploArqueiro();
-  void habilidadeDisparoEspecialArqueiro();
-
-  void habilidadeConjuracaoSimplesMago();
-  void habilidadeConjuracaoRapidaMago();
-  void habilidadeConjuracaoEspecialMago();
-
-  void habilidadeAtaquePesadoPaladino();
-  void habilidadeDefesaRapidaPaladino();
-  void habilidadeAtaqueEspecialFortePaladino();
+  void ataqueLeve(Personagem inimigo) {}
+  void ataquePesado(Personagem inimigo) {}
+  void ataqueEspecial(Personagem inimigo) {}
+  void esquiva(Personagem inimigo) {}
 }
