@@ -11,25 +11,23 @@ class Item {
       int durabilidade = 0,
       int defesa = 0,
       String alcance = "N/a"}) {
+    this._nome = nome;
     if (this._nome == "Escudo") {
       this._dano = 0;
       this._durabilidade = 10;
       this._defesa = 2;
       this._alcance = "Curto";
-    }
-    if (this._nome == "Espada") {
+    } else if (this._nome == "Espada") {
       this._dano = 2;
       this._durabilidade = 10;
       this._defesa = 0;
       this._alcance = "Curto";
-    }
-    if (this._nome == "Arco") {
+    } else if (this._nome == "Arco") {
       this._dano = 2;
       this._dano = 8;
       this._defesa = 0;
       this._alcance = "Longo";
-    }
-    if (this._nome == "Lança") {
+    } else if (this._nome == "Lança") {
       this._dano = 2;
       this._durabilidade = 8;
       this._defesa = 0;

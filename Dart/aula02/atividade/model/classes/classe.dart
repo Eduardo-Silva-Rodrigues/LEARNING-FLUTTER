@@ -8,78 +8,65 @@ abstract class Classe extends Skills {
   String? _estilo;
 
   Classe(
-      {String nomeClasse = "N/a",
+      {required String? nomeClasse,
       int vida = 0,
       int ataque = 0,
       int defesa = 0,
       String estilo = 'N/a'}) {
-    if (nomeClasse == "Guerreiro") {
-      this._nomeClasse = nomeClasse;
-      this._vida = 20;
-      this._ataque = 6;
-      this._defesa = 5;
-      this._estilo = "Corpo-a-corpo";
+    this._nomeClasse = nomeClasse;
+
+    switch (nomeClasse) {
+      case "Guerreiro":
+        this._nomeClasse = nomeClasse;
+        this._vida = 20;
+        this._ataque = 6;
+        this._defesa = 5;
+        this._estilo = "Corpo-a-corpo";
+        break;
+      case "Arqueiro":
+        this._vida = 15;
+        this._ataque = 6;
+        this._defesa = 4;
+        this._estilo = "Longo alcance";
+        break;
+      case "Mago":
+        this._vida = 15;
+        this._ataque = 7;
+        this._defesa = 3;
+        this._estilo = "Longo alcance";
+        break;
+      case "Paladino":
+        this._vida = 20;
+        this._ataque = 6;
+        this._defesa = 6;
+        this._estilo = "Corpo-a-corpo";
+        break;
     }
-
-    if (nomeClasse == "Arqueiro") {
-      this._vida = 15;
-      this._ataque = 6;
-      this._defesa = 4;
-      this._estilo = "Longo alcance";
-    }
-
-    if (nomeClasse == "Mago") {
-      this._vida = 15;
-      this._ataque = 7;
-      this._defesa = 3;
-      this._estilo = "Longo alcance";
-    }
-
-    if (nomeClasse == "Paladino") {
-      this._vida = 20;
-      this._ataque = 6;
-      this._defesa = 6;
-      this._estilo = "Corpo-a-corpo";
-    }
   }
 
-  String getNomeClasse() {
-    return this._nomeClasse!;
-  }
+  String get getNomeClasse => this._nomeClasse!;
+  int get getVida => this._vida!;
+  int get getAtaque => this._ataque!;
+  int get getDefesa => this._defesa!;
+  String get getEstilo => this._estilo!;
 
-  int getVida() {
-    return this._vida!;
-  }
-
-  int getAtaque() {
-    return this._ataque!;
-  }
-
-  int getDefesa() {
-    return this._defesa!;
-  }
-
-  String getEstilo() {
-    return this._estilo!;
-  }
-
-  void setNomeClasse(String nomeClasse) {
+  void set setNomeClasse(String nomeClasse) {
     this._nomeClasse = nomeClasse;
   }
 
-  void setVida(int vida) {
+  void set setVida(int vida) {
     this._vida = vida;
   }
 
-  void setAtaque(int ataque) {
+  void set setAtaque(int ataque) {
     this._ataque = ataque;
   }
 
-  void setDefesa(int defesa) {
+  void set setDefesa(int defesa) {
     this._defesa = defesa;
   }
 
-  void setEstilo(String estilo) {
+  void set setEstilo(String estilo) {
     this._estilo = estilo;
   }
 }

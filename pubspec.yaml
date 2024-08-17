@@ -1,0 +1,9 @@
+name: meu_projeto
+description: Um projeto Dart com um menu interativo.
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  dart_console: ^1.1.0
