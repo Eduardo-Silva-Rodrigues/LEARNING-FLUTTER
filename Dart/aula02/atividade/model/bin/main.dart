@@ -1,6 +1,10 @@
-import '../classes/jogo.dart';
+import '../classes/menu.dart';
+import '../classes/personagem.dart';
 
 void main() {
-  Jogo jogo = Jogo();
-  jogo.iniciarJogo();
+  Menu jogo = Menu();
+  Personagem? p = jogo.iniciarJogo();
+  print(p!.getNome);
+  print(p.getNomeClasse);
+  print(p.getEquipamentos);
 }

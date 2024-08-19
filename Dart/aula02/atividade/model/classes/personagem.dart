@@ -18,7 +18,7 @@ class Personagem extends Classe {
       bool estadoDefesa = false,
       int defesasRealizadas = 0})
       : _nomePersonagem = nomePersonagem,
-        _equipamentos = equipamentos ?? [],
+        _equipamentos = equipamentos!,
         _nivel = nivel,
         _cooldownAtaqueEspecial = cooldownAtaqueEspecial,
         _estadoDefesa = estadoDefesa,

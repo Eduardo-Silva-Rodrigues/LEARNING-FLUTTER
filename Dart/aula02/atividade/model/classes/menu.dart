@@ -3,20 +3,28 @@ import 'package:dart_console/dart_console.dart';
 import 'personagem.dart';
 import 'item.dart';
 
-class Jogo {
+class Menu {
   Personagem? personagemDoJogador = null;
   final console = Console();
   final opcoesMenuInicial = ['Iniciar', 'Sair'];
   final opcoesDeClasse = ['Guerreiro', 'Arqueiro', 'Mago', 'Paladino'];
   final opcoesDeItens = ['Arco', 'Escudo', 'Espada', 'Lança', 'Finalizar'];
   int indexSelecionado = 0;
+  bool estadoDeComponenteNulo = false;
 
-  void iniciarJogo() {
+  Personagem? iniciarJogo() {
     while (true) {
       console.clearScreen();
       console.setForegroundColor(ConsoleColor.brightBlue);
       console.writeLine('MENU PRINCIPAL:');
       console.resetColorAttributes();
+      if (estadoDeComponenteNulo) {
+        console.setForegroundColor(ConsoleColor.brightRed);
+        console.writeLine(
+            '• Alguma característica do personagem não foi definida!');
+        console.resetColorAttributes();
+        estadoDeComponenteNulo = false;
+      }
 
       for (int i = 0; i < this.opcoesMenuInicial.length; i++) {
         if (indexSelecionado == i) {
@@ -39,16 +47,20 @@ class Jogo {
           indexSelecionado--;
         }
       } else if (key.controlChar == ControlCharacter.enter) {
+        Personagem? personagemDoJogador;
+
         if (opcoesMenuInicial[indexSelecionado] == 'Sair') {
           break;
         } else {
-          criarPersonagem();
+          personagemDoJogador = criarPersonagem();
         }
+
+        return personagemDoJogador;
       }
     }
   }
 
-  void criarPersonagem() {
+  Personagem? criarPersonagem() {
     console.clearScreen();
     console.setForegroundColor(ConsoleColor.brightBlue);
     console.writeLine('Criação de personagem (Nomeie seu personagem):');
@@ -59,7 +71,13 @@ class Jogo {
         nomeClasse: classePersonagem,
         nomePersonagem: nomePersonagem,
         equipamentos: itensPersonagem);
-    final key = console.readKey();
+
+    if (personagemDoJogador == null) {
+      estadoDeComponenteNulo = true;
+      iniciarJogo();
+    }
+
+    return personagemDoJogador;
   }
 
   String? nomearPersonagem() {
@@ -86,17 +104,17 @@ class Jogo {
         }
       }
 
-      final key1 = console.readKey();
+      final key = console.readKey();
 
-      if (key1.controlChar == ControlCharacter.arrowDown) {
+      if (key.controlChar == ControlCharacter.arrowDown) {
         if (indexSelecionado < opcoesDeClasse.length - 1) {
           indexSelecionado++;
         }
-      } else if (key1.controlChar == ControlCharacter.arrowUp) {
+      } else if (key.controlChar == ControlCharacter.arrowUp) {
         if (indexSelecionado > 0) {
           indexSelecionado--;
         }
-      } else if (key1.controlChar == ControlCharacter.enter) {
+      } else if (key.controlChar == ControlCharacter.enter) {
         if (opcoesDeClasse[indexSelecionado] == 'Guerreiro') {
           return 'Guerreiro';
         } else if (opcoesDeClasse[indexSelecionado] == 'Arqueiro') {
@@ -162,8 +180,7 @@ class Jogo {
           itens.insert(0, lanca);
         } else if (opcoesDeItens[indexSelecionado] == 'Finalizar') {
           if (itens.length > 2) {
-            List<Item> itensLimitada = [itens[0], itens[1]];
-            return itensLimitada;
+            return [itens[0], itens[1]];
           } else {
             return itens;
           }
