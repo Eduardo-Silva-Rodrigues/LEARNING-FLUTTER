@@ -54,7 +54,6 @@ class Menu {
         } else {
           personagemDoJogador = criarPersonagem();
         }
-
         return personagemDoJogador;
       }
     }
@@ -66,11 +65,13 @@ class Menu {
     console.writeLine('Criação de personagem (Nomeie seu personagem):');
     String? nomePersonagem = this.nomearPersonagem();
     String? classePersonagem = this.escolherClasse();
-    List<Item>? itensPersonagem = this.escolherItens();
-    personagemDoJogador = Personagem(
+    Item item1 = this.escolherItens();
+    Item item2 = this.escolherItens();
+
+    this.statusPersonagem(personagemDoJogador = Personagem(
         nomeClasse: classePersonagem,
         nomePersonagem: nomePersonagem,
-        equipamentos: itensPersonagem);
+        equipamentos: [item1, item2]));
 
     if (personagemDoJogador == null) {
       estadoDeComponenteNulo = true;
@@ -130,7 +131,7 @@ class Menu {
     }
   }
 
-  List<Item> escolherItens() {
+  Item escolherItens() {
     while (true) {
       console.clearScreen();
       console.setForegroundColor(ConsoleColor.brightBlue);
@@ -140,12 +141,7 @@ class Menu {
       console.writeLine('(Você pode pegar um escudo como item extra)');
       console.resetColorAttributes();
       for (int i = 0; i < this.opcoesDeItens.length; i++) {
-        if (indexSelecionado == i &&
-            opcoesDeItens[indexSelecionado] == 'Finalizar') {
-          console.setForegroundColor(ConsoleColor.brightRed);
-          console.writeLine("> ${this.opcoesDeItens[i]}");
-          console.resetColorAttributes();
-        } else if (indexSelecionado == i) {
+        if (indexSelecionado == i) {
           console.setForegroundColor(ConsoleColor.brightWhite);
           console.writeLine("> ${this.opcoesDeItens[i]}");
           console.resetColorAttributes();
@@ -168,24 +164,24 @@ class Menu {
       } else if (key.controlChar == ControlCharacter.enter) {
         if (opcoesDeItens[indexSelecionado] == 'Arco') {
           Item arco = Item(nome: 'Arco');
-          itens.insert(0, arco);
+          return arco;
         } else if (opcoesDeItens[indexSelecionado] == 'Escudo') {
           Item escudo = Item(nome: 'Escudo');
-          itens.add(escudo);
+          return escudo;
         } else if (opcoesDeItens[indexSelecionado] == 'Espada') {
           Item espada = Item(nome: 'Espada');
-          itens.insert(0, espada);
+          return espada;
         } else if (opcoesDeItens[indexSelecionado] == 'Lança') {
           Item lanca = Item(nome: 'Lança');
-          itens.insert(0, lanca);
-        } else if (opcoesDeItens[indexSelecionado] == 'Finalizar') {
-          if (itens.length > 2) {
-            return [itens[0], itens[1]];
-          } else {
-            return itens;
-          }
-        }
+          return lanca;
+        } 
       }
     }
   }
+
+  void statusPersonagem(Personagem personagem) {
+    
+
+  }
+
 }
