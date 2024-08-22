@@ -8,7 +8,7 @@ class Menu {
   final console = Console();
   final opcoesMenuInicial = ['Iniciar', 'Sair'];
   final opcoesDeClasse = ['Guerreiro', 'Arqueiro', 'Mago', 'Paladino'];
-  final opcoesDeItens = ['Arco', 'Escudo', 'Espada', 'Lança', 'Finalizar'];
+  final opcoesDeItens = ['Arco', 'Escudo', 'Espada', 'Lança'];
   int indexSelecionado = 0;
   bool estadoDeComponenteNulo = false;
 
@@ -151,7 +151,6 @@ class Menu {
       }
 
       final key = console.readKey();
-      List<Item> itens = [];
 
       if (key.controlChar == ControlCharacter.arrowDown) {
         if (indexSelecionado < opcoesDeItens.length - 1) {
@@ -174,14 +173,10 @@ class Menu {
         } else if (opcoesDeItens[indexSelecionado] == 'Lança') {
           Item lanca = Item(nome: 'Lança');
           return lanca;
-        } 
+        }
       }
     }
   }
 
-  void statusPersonagem(Personagem personagem) {
-    
-
-  }
-
+  void statusPersonagem(Personagem personagem) {}
 }
