@@ -6,7 +6,7 @@ class Item {
   String? _alcance;
 
   Item(
-      {String nome = "N/a",
+      {required String nome,
       int dano = 0,
       int durabilidade = 0,
       int defesa = 0,
@@ -14,7 +14,7 @@ class Item {
     this._nome = nome;
     if (this._nome == "Escudo") {
       this._dano = 0;
-      this._durabilidade = 10;
+      this._durabilidade = 9;
       this._defesa = 2;
       this._alcance = "Curto";
     } else if (this._nome == "Espada") {
@@ -24,7 +24,7 @@ class Item {
       this._alcance = "Curto";
     } else if (this._nome == "Arco") {
       this._dano = 2;
-      this._dano = 8;
+      this._durabilidade = 8;
       this._defesa = 0;
       this._alcance = "Longo";
     } else if (this._nome == "Lança") {

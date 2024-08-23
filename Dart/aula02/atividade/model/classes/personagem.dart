@@ -45,10 +45,10 @@ class Personagem extends Classe {
       this._defesasRealizadas = defesasRealizadas;
 
   @override
-  void ataqueLeve(Personagem inimigo) {
+  void ataqueLeve(Personagem? inimigo) {
     this.setEstadoDefesa = false;
-    if (inimigo.getEstadoDefesa == true) {
-      int danoNoInimigo = this.getAtaque -
+    if (inimigo!.getEstadoDefesa == true) {
+      int? danoNoInimigo = this.getAtaque -
           (inimigo.getDefesa + inimigo.getEquipamentos[1].getDefesa);
       int vidaRestanteDoInimigo = inimigo.getVida - danoNoInimigo;
       inimigo.setVida = vidaRestanteDoInimigo;
