@@ -3,43 +3,43 @@
   "packages": [
     {
       "name": "characters",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.3.0",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "clock",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/clock-1.1.1",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/clock-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "dart_console",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/dart_console-1.1.2",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/dart_console-1.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "ffi",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/ffi-2.0.2",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/ffi-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "intl",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.17.0",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.17.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "win32",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/win32-2.7.0",
+      "rootUri": "file:///C:/Users/silva/AppData/Local/Pub/Cache/hosted/pub.dev/win32-2.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -50,7 +50,10 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2024-08-21T22:27:04.768362Z",
+  "generated": "2024-08-22T18:50:51.856204Z",
   "generator": "pub",
-  "generatorVersion": "2.19.0"
+  "generatorVersion": "3.4.4",
+  "flutterRoot": "file:///D:/src/flutter",
+  "flutterVersion": "3.22.3",
+  "pubCache": "file:///C:/Users/silva/AppData/Local/Pub/Cache"
 }
