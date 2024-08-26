@@ -4,11 +4,11 @@ import 'package:flutter_list_app/questao.dart';
 void main() => runApp(PerguntaApp());
 
 class PerguntaAppState extends State<PerguntaApp> {
-  var perguntaSelecionada = 0;
+  var numeroDeTarefas = 0;
 
   void responder() {
     setState(() {
-      perguntaSelecionada++;
+      numeroDeTarefas++;
       print('Respondido');
     });
   }
@@ -22,16 +22,18 @@ class PerguntaAppState extends State<PerguntaApp> {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: const Text('Minhas perguntas'),
+        title: const Text('LISTA DE TAREFAS'),
         backgroundColor: Color.fromARGB(255, 10, 207, 164),
       ),
-      body: Column(
-        children: [
-          Questao(perguntas.elementAt(perguntaSelecionada)),
-          ElevatedButton(onPressed: responder, child: Text('Resposta 1')),
-          ElevatedButton(onPressed: responder, child: Text('Resposta 2')),
-          ElevatedButton(onPressed: responder, child: Text('Resposta 3')),
-        ],
+      body: GridView.count(
+          crossAxisCount: 1,
+          children: <Widget>[
+            ...List.generate(10, (index) {
+              return Center(
+              child: Text('Text'),
+              );
+            })
+          ],
       ),
     ));
   }
