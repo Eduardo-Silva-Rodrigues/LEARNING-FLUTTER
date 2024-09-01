@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_list_app/scream/tarefa_lista.dart';
+import 'package:flutter_list_app/model/tarefa.dart';
+import 'widgets/tarefa_botao.dart';
+import 'scream/tarefa_lista.dart';
 
 void main() => runApp(ListaTarefaApp());
 
-class ListaTarefaAppState extends State<ListaTarefaApp> {
+class MainAppState extends State<MainApp> {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(appBar: AppBar(title: 'Dsad'), home: TarefaLista());
+    return MaterialApp(
+        home: ListaTarefaApp()
+    );
   }
 }
 
-class ListaTarefaApp extends StatefulWidget {
+class MainApp extends StatefulWidget {
   @override
-  ListaTarefaAppState createState() {
-    return ListaTarefaAppState();
+  MainAppState createState() {
+    return MainAppState();
   }
 }
