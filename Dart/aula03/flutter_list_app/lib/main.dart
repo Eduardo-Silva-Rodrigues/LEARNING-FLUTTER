@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_list_app/model/tarefa.dart';
-import 'widgets/tarefa_botao.dart';
 import 'scream/tarefa_lista.dart';
 
 void main() => runApp(ListaTarefaApp());

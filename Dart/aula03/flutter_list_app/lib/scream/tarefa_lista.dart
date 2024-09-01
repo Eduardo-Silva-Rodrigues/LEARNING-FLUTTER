@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
-import '../widgets/tarefa_botao.dart';
-import 'package:flutter_list_app/scream/tarefa_lista.dart';
+import '../model/tarefa.dart';
+import '../widgets/tarefa_item.dart';
 
 void main() => runApp(ListaTarefaApp());
 
 class ListaTarefaAppState extends State<ListaTarefaApp> {
-  final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  bool visivel = false;
+  TextEditingController controller = TextEditingController();
+  List<Tarefa> tarefas = [];
 
-  void metodo() {
+  void alterarVisibilidade() {
+    setState(() {
+      visivel = !visivel;
+    });
+  }
 
+  void adicionarTarefa() {
+    if (controller.text.isNotEmpty) {
+      setState(() {
+        tarefas.add(Tarefa(controller.text, false));
+        controller.clear();
+        visivel = false;
+      });
+    }
+  }
+
+  void alternarConcluida(Tarefa tarefa, bool? concluida) {
+    setState(() {
+      tarefa.concluida = concluida ?? false;
+    });
   }
 
   @override
@@ -19,25 +39,48 @@ class ListaTarefaAppState extends State<ListaTarefaApp> {
                 title: Text('Lista de tarefas', style: TextStyle(color: Colors.white)),
                 backgroundColor: Colors.blueAccent
             ),
-            body: Center(
-              child: Column(
-                children: [
-                  //   >> Lista de tarefas! <<
-                  Expanded(
-                      child: ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: (context, index){
-                        return ListTile(
-                            title: Text(items[index])
-                        );
-                      })
+            body: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: tarefas.length,
+                    itemBuilder: (context, index) {
+                      return TarefaItem(
+                        tarefa: tarefas[index],
+                        check: (concluida) => alternarConcluida(tarefas[index], concluida),
+                      );
+                    },
                   ),
-                  Botao()
-                ],
-              ),
-            )
-
-        ));
+                ),
+                if (visivel)
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      controller: controller,
+                      decoration: InputDecoration(
+                        labelText: 'Nova Tarefa',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.check),
+                          onPressed: adicionarTarefa,
+                        ),
+                      ),
+                    ),
+                  ),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                      onPressed: alterarVisibilidade,
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                        backgroundColor: Colors.blueAccent,
+                      ),
+                      child: Icon(Icons.add, color: Colors.white),
+                    ),
+                  ),
+              ],
+            ),
+        )
+    );
   }
 }
 
