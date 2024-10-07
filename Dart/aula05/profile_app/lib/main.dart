@@ -23,6 +23,7 @@ class MyProfilePage extends StatelessWidget {
   final String nome = "Eduardo Silva Rodrigues";
   final String email = "eduardodev8@gmail.com";
   final String localizacao = "Paraná, Brasil";
+  final String localizacao2 = "Paraná, Brasil";
   final List<String> habilidades = <String>[
     "Java",
     "Spring",
@@ -42,7 +43,10 @@ class MyProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile App"),
+        title: const Text(
+          "Perfil do Usuário",
+          style: TextStyle(fontSize: 24),
+        ),
         backgroundColor: Colors.white,
         centerTitle: true,
         titleTextStyle: const TextStyle(color: Colors.black),
@@ -74,50 +78,145 @@ class MyProfilePage extends StatelessWidget {
             ))
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        const SizedBox(height: 50),
+        Column(
           children: <Widget>[
-            const Icon(
-              Icons.person,
-              color: Colors.blue,
-              size: 20,
-              semanticLabel: "Nome do usuário",
-            ),
             Text(nome,
                 style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
+                    const TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Icon(
+                  Icons.email,
+                  color: Colors.black38,
+                  size: 26,
+                  semanticLabel: "Localização do usuário",
+                ),
+                const SizedBox(width: 5),
+                Text(
+                  email,
+                  style: const TextStyle(fontSize: 24),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Icon(Icons.location_pin,
+                    color: Colors.black38,
+                    size: 26,
+                    semanticLabel: "Email do usuário"),
+                const SizedBox(width: 5),
+                Text(localizacao, style: const TextStyle(fontSize: 24))
+              ],
+            ),
+            const SizedBox(height: 30),
+            const Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text("Habilidades:",
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                )),
+            Expanded(
+                child: Wrap(
+              children: [
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[0],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[1],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[2],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[3],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[4],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[5],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[6],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[7],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[8],
+                            style: const TextStyle(fontSize: 18)))),
+                Card(
+                    color: const Color.fromARGB(255, 187, 222, 251),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        side: BorderSide(color: Colors.black)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(habilidades[9],
+                            style: const TextStyle(fontSize: 18)))),
+              ],
+            )),
           ],
         ),
-        Row(
-          textDirection: TextDirection.ltr,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Icon(
-              Icons.map,
-              color: Colors.blue,
-              size: 20,
-              semanticLabel: "Localização do usuário",
-            ),
-            Text(
-              localizacao,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Icon(
-              Icons.email,
-              color: Colors.blue,
-              size: 20,
-              semanticLabel: "Email do usuário",
-            ),
-            Text(email,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
-          ],
-        )
       ])),
     );
   }
