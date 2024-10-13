@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ProfileApp());
+  runApp(const ProfileApp());
 }
 
 class ProfileApp extends StatelessWidget {
+  const ProfileApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,6 +40,9 @@ class MyProfilePage extends StatelessWidget {
   final String imagem =
       "https://paraibaon.com.br/wp-content/uploads/2022/05/guaxininanjnd_widelg.jpg";
 
+  void botaoUm() {}
+  void botaoDois() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,9 +66,8 @@ class MyProfilePage extends StatelessWidget {
                   color: Colors.blue,
                   height: 180,
                 ),
-                Positioned(
-                    top: 40,
-                    left: 150,
+                Center(
+                    heightFactor: 1.8,
                     child: Container(
                         width: 100,
                         height: 100,
@@ -113,15 +116,14 @@ class MyProfilePage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             const Align(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: EdgeInsets.all(10),
                   child: Text("Habilidades:",
                       style:
                           TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                 )),
-            Expanded(
-                child: Wrap(
+            Wrap(
               children: [
                 Card(
                     color: const Color.fromARGB(255, 187, 222, 251),
@@ -214,10 +216,61 @@ class MyProfilePage extends StatelessWidget {
                         child: Text(habilidades[9],
                             style: const TextStyle(fontSize: 18)))),
               ],
-            )),
+            ),
+            const SizedBox(
+              height: 200,
+            ),
+            Row(children: [
+              Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.message),
+                        label: const Text("Enviar Mensagem")),
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.person_add),
+                      label: const Text("Seguir"),
+                    ),
+                  ))
+            ])
           ],
         ),
       ])),
+      bottomNavigationBar: const BottomAppBar(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+                flex: 1,
+                child: Center(
+                    child: Text(
+                  "Sobre",
+                  style: TextStyle(color: Color.fromARGB(255, 116, 61, 168)),
+                ))),
+            Expanded(
+                flex: 1,
+                child: Center(
+                    child: Text("Projetos",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 116, 61, 168))))),
+            Expanded(
+              flex: 1,
+              child: Center(
+                  child: Text("Contato",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 116, 61, 168)))),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
